@@ -34,16 +34,24 @@ def prepare(file, payload):
         payload = f.read()
     if "options" in config:
         print("Set options: ")
+        formatString = ""
+        UsageFormat = ""
         for k, v in config['options'].iteritems():
             print("")
             print("Info: " + str(v['info']))
             resp = raw_input("{} [{}]".format(v['name'], v['default']))
             config['usage'] = eval("str(config['usage']).format(" + k + "='" + resp + "')")
-            payload = eval("str(payload).format(" + k + "='" + resp + "')")
+            UsageFormat = UsageFormat + k + "='" + resp + "',"
+            formatString = formatString + k + "='" + resp + "',"
+
+        UsageFormat = "str(config)['usage']).format('" + UsageFormat + "')"
+        formatString = "str(payload).format('" + formatString + "')"
+        eval(UsageFormat)
+        eval(formatString)
 
     print(config['usage'])
     payload = payload.format(random=''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6)))
-    print()
+    print("")
     with open(file, 'r') as f:
         before = f.read()
 
@@ -81,7 +89,7 @@ def cmd():
             exit()
         payload = "payloads/" + str(type) + "/" + payload + "/"
         print "Payload =  " + payload
-        print()
+        print
         prepare(file, payload)
 
 
