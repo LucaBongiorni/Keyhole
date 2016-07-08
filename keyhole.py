@@ -30,7 +30,7 @@ def prepare(file, payload):
     print(config['info'])
     print("")
     payload = payload + config['payload']
-    with open("payload", 'r') as f:
+    with open(payload, 'r') as f:
         payload = f.read()
     if "options" in config:
         print("Set options: ")
