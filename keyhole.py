@@ -55,7 +55,7 @@ def prepare(file, payload):
         else:
             f.write(before + "\r")
             f.write(payload)
-            
+
 
     print "Code Injected"
 
@@ -81,7 +81,8 @@ def cmd():
             exit()
         payload = "payloads/" + str(type) + "/" + payload + "/"
         print "Payload =  " + payload
-
+        print()
+        prepare(file, payload)
 
 
     def main():
