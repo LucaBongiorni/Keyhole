@@ -6,7 +6,8 @@
 		"name": "Escape string",
 		"info": "secret string to activate backdoor",
 		"default": "<>"
-	},
+	}
+},
 "payload": "payload.py",
 "location": "top"
 }
