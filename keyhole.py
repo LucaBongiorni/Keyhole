@@ -44,7 +44,7 @@ def prepare(file, payload):
             UsageFormat = UsageFormat + k + "='" + resp + "',"
             formatString = formatString + k + "='" + resp + "',"
 
-        formatString = formatString + ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6))
+        formatString = formatString + 'random="'.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6)) + '"'
         UsageFormat = "str(config['usage']).format('" + UsageFormat + "')"
         formatString = "str(payload).format('" + formatString + "')"
         eval(UsageFormat)
