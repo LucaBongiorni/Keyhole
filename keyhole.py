@@ -44,7 +44,7 @@ def prepare(file, payload):
             UsageFormat = UsageFormat + k + "='" + resp + "',"
             formatString = formatString + k + "='" + resp + "',"
 
-        UsageFormat = "str(config)['usage']).format('" + UsageFormat + "')"
+        UsageFormat = "str(config['usage']).format('" + UsageFormat + "')"
         formatString = "str(payload).format('" + formatString + "')"
         eval(UsageFormat)
         eval(formatString)
